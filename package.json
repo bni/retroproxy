@@ -1,0 +1,20 @@
+{
+  "name": "retroproxy",
+  "version": "0.0.1",
+  "description": "Make modern websites accessible on old computers",
+  "main": "index.js",
+  "author": "Björn Nilsson",
+  "license": "MIT",
+  "repository": "https://github.com/bni/retroproxy",
+  "scripts": {
+    "postinstall": "node_modules/.bin/pkg -t node12 -o retroproxy index.js"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.4.1",
+    "jsdom": "^16.5.2",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "pkg": "^4.5.1"
+  }
+}
