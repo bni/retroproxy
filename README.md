@@ -1,14 +1,21 @@
-# retroproxy - Make the modern web accessible on retro computers
+# retroproxy
 
 ![retroproxy](https://raw.github.com/bni/retroproxy/master/retroproxy.png)
 
-Build retroproxy executable:
+Build retroproxy:
 npm install
 
 The (huge!) executable is standalone and can be copied to /usr/local/bin/ then started from there.
 
+Run the program on your Mac/PC and it will listen for http connections on port 1986
+
+*WARNING NO SECURITY* Dont put this on the internet, use on you local LAN only.
+
 Example alias in Shell-Startup:
+
+```
 Alias Web "links http://mac:1986"
+```
 
 Start page is the lite version of DuckDuckGo search engine.
 
