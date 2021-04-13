@@ -34,17 +34,36 @@ const modifyLinks = (result, host) => {
 }
 
 const cleanSearchResults = (result) => {
-    // Remove formatting that takes up space
-    result.output = result.output.replace(/<p.*<\/p>/gi, '<p></p>');
+    // Remove DuckDuckGo heading
+    result.output = result.output.replace(/<p class='extra'>&nbsp;<\/p>\n<div class="header">DuckDuckGo<\/div>\n<p class='extra'>&nbsp;<\/p>/gi, '');
+
+    // Remove extra empty space
+    result.output = result.output.replace(/<p class=['"]extra['"]>&nbsp;<\/p>/gi, '');
+
+    // Remove empty table
+    result.output = result.output.replace(/<table border="0">\n\n<\/table>/gi, '');
 
     // Remove where and when selects
-    result.output = result.output.replace(/<select class="submit" name="kl">[\s\S]*<\/select>/gi, '');
+    result.output = result.output.replace(/<select class="submit" name="kl">[\s\S]*<\/select>/gi, '<p></p>');
+
+    // Remove upper Forward/Back
+    result.output = result.output.replace(/<table border="0"><tr>[\s\S]*?<form action="\/lite\/" method="post">[\n\r\s]+<!--[\s\S]*?<\/table>/gi, '');
 
     // Remove the written out link under each result
     result.output = result.output.replace(/<tr>\s*<td>&nbsp;&nbsp;&nbsp;<\/td>\s*<td>\s*<span class='link-text'>.*<\/span>\s*<\/td>\s*<\/tr>/gi, '');
 
+    // Remove zero click results
+    result.output = result.output.replace(/<table border="0">[\n\r\s]+<!-- If zero click results[\s\S]*?<\/table>/gi, '');
+
+    // Remove empty rows
+    result.output = result.output.replace(/<tr>[\n\r\s]+<td>&nbsp;<\/td>[\n\r\s]+<td>&nbsp;<\/td>[\n\r\s]+<\/tr>/gi, '');
+
     // Remove img
     result.output = result.output.replace(/<img[\s\S]*?\/?>/gi, '');
+
+    console.log(`${result.output}`);
+
+
 }
 
 const makeAbsolute = (data, url) => {
