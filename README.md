@@ -1,13 +1,15 @@
 # retroproxy
 
 ![retroproxy](https://raw.github.com/bni/retroproxy/master/retroproxy.png)
+_Screenshot showing AWeb_
 
 Build retroproxy:
-npm install
 
-The (huge!) executable is standalone and can be copied to /usr/local/bin/ then started from there.
+`npm install`
 
-Run the program on your Mac/PC and it will listen for http connections on port 1986
+The executable is standalone and can be copied to `/usr/local/bin/` then started from there.
+
+Run the program on your Mac/PC and it will listen for http connections on port 1986.
 
 *WARNING NO SECURITY* Dont put this on the internet, use on you local LAN only.
 

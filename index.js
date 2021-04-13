@@ -60,10 +60,6 @@ const cleanSearchResults = (result) => {
 
     // Remove img
     result.output = result.output.replace(/<img[\s\S]*?\/?>/gi, '');
-
-    console.log(`${result.output}`);
-
-
 }
 
 const makeAbsolute = (data, url) => {
